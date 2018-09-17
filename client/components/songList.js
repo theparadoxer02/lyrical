@@ -8,21 +8,21 @@ class SongList extends Component {
         return this.props.data.songs.map(song => {
             // console.log(song.title);
             return (
-                <li>
-                    { song.title }
+                <li key={song.id} classname="collection-item">
+                    {song.title}
                 </li>
             );
         });
     }
 
     render() {
-    
+        console.log(this.props.data.loading);
         if (this.props.data.loading) { return <div>Loading...</div>; }
        
         return (
-            <div>
+            <ul className="collection">
                 { this.renderSongs() }
-            </div>
+            </ul>
         );
     }
 }
